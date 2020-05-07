@@ -1,4 +1,4 @@
-name: "main"
+name: "level"
 collection_instances {
   id: "ground"
   collection: "/level/ground.collection"
@@ -106,7 +106,7 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "background"
+  id: "bg"
   data: "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
@@ -129,9 +129,9 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 300.0
-    y: 500.0
-    z: 0.0
+    x: 0.0
+    y: 250.0
+    z: -0.2
   }
   rotation {
     x: 0.0
@@ -140,8 +140,8 @@ embedded_instances {
     w: 1.0
   }
   scale3 {
-    x: 2.0
-    y: 2.0
-    z: 1.0
+    x: 3.0
+    y: 3.0
+    z: 3.0
   }
 }

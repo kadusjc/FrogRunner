@@ -1,4 +1,4 @@
-name: "default"
+name: "hero"
 instances {
   id: "hero"
   prototype: "/hero/hero.go"

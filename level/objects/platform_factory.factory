@@ -1,2 +1,2 @@
-prototype: "/level/objects/plataform.go"
+prototype: "/level/objects/platform.go"
 load_dynamically: false

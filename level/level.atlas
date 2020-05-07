@@ -11,7 +11,23 @@ images {
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
+  image: "/level/images/bg.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/level/images/coin.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/level/images/heart.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
   image: "/level/images/sky.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
+images {
+  image: "/level/images/spikes.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 margin: 0

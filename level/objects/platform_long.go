@@ -1,6 +1,6 @@
 components {
-  id: "plataform"
-  component: "/level/objects/plataform.script"
+  id: "platform"
+  component: "/level/objects/platform.script"
   position {
     x: 0.0
     y: 0.0
@@ -47,9 +47,9 @@ embedded_components {
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"
   "    position {\n"
-  "      x: -2.0\n"
-  "      y: -2.0\n"
-  "      z: 0.0\n"
+  "      x: 187.0\n"
+  "      y: 1.0\n"
+  "      z: 1.0\n"
   "    }\n"
   "    rotation {\n"
   "      x: 0.0\n"
@@ -60,7 +60,7 @@ embedded_components {
   "    index: 0\n"
   "    count: 3\n"
   "  }\n"
-  "  data: 187.5\n"
+  "  data: 375.0\n"
   "  data: 72.5\n"
   "  data: 10.0\n"
   "}\n"
@@ -78,5 +78,25 @@ embedded_components {
     y: 0.0
     z: 0.0
     w: 1.0
+  }
+}
+embedded_components {
+  id: "sprite1"
+  type: "sprite"
+  data: "tile_set: \"/level/level.atlas\"\n"
+  "default_animation: \"rock_planks\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
+  position {
+    x: 375.0
+    y: 1.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 1.0
+    z: 0.0
+    w: 6.123234E-17
   }
 }
