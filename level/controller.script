@@ -4,15 +4,15 @@ local pieces = { "ground0", "ground1", "ground2", "ground3",
 function init(self)
 	-- Add initialization code here
 	-- Remove this function if not needed
-	self.speed = 360 
+	self.speed = 360 	
 end
 
 -- ground.script
 function on_message(self, message_id, message, sender)
 	if message_id == hash("set_speed") then -- <1>
 		self.speed = message.speed -- <2>
-	end
-end
+	end		
+end         
 
 function update(self, dtFrameRate)
 	-- Add update code here

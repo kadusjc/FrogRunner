@@ -22,7 +22,7 @@ end
 function create_coins(self, params)
 	local spacing = 56
 	local pos = go.get_position()
-	local x = pos.x - params.coins * (spacing*0.5) - 24
+	local x = pos.x + params.initialPosition - params.coins * (spacing*0.5) - 24
 	for i = 1, params.coins do
 		local coin = factory.create("#coin_factory", vmath.vector3(x + i * spacing , pos.y + 64, 1))
 		msg.post(coin, "set_parent", { parent_id = go.get_id() }) -- <1>

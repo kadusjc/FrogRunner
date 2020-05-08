@@ -8,6 +8,7 @@ function init(self)
 	msg.post("ground/controller#script", "set_speed", { speed = self.speed })
 	self.gridw = 0
 	self.spawns = {} -- <1>
+	self.points = 0
 end
 
 function update(self, dt)
@@ -18,24 +19,37 @@ function update(self, dt)
 
 		-- Maybe spawn a platform at random height
 		if math.random() > 0.2 then
+			local initialPosition = 0
 			local h = platform_heights[math.random(#platform_heights)]
 			local f = "#platform_factory"
+			coins = 3
 			if math.random() > 0.5 then
+				initialPosition = 100
 				f = "#platform_long_factory"
-				coins = coins * 2 -- Twice the number of coins on long platforms
+				coins = 7
 			end
 
 			local p = factory.create(f, vmath.vector3(1600, h, 0), nil, {}, 0.6)
 			msg.post(p, "set_speed", { speed = self.speed })
-			msg.post(p, "create_coins", { coins = coins })
+			msg.post(p, "create_coins", { coins = coins, initialPosition = initialPosition })
 			table.insert(self.spawns, p) -- <1>
 		end
 	end
 end
 
+function printPoints (self) 
+	label.set_text("#pointsValue", self.points)
+end
+	
 function on_message(self, message_id, message, sender)
-	if message_id == hash("reset") then -- <2>
+	if message_id == hash("collected") then
+		self.points = self.points + 10
+		printPoints(self)
+	elseif message_id == hash("reset") then -- <2>
 		-- Tell the hero to reset.
+		self.points = 0
+		printPoints(self)
+		
 		msg.post("hero/hero#hero", "reset")
 		-- Delete all platforms
 		for i,p in ipairs(self.spawns) do
