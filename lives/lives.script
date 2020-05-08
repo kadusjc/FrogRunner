@@ -1,0 +1,33 @@
+local myLifes = { "life3", "life2", "life1" }
+
+function init(self)
+	self.lifeCount = 3
+	pos = go.get_position()
+	--go.animate(go.get_id(), "position.y", go.PLAYBACK_LOOP_PINGPONG, pos.y + 24, go.EASING_INOUTSINE, 0.75, message.delay)
+end
+
+local function _getObjectName(self) 
+	return "life"..self.lifeCount.."#sprite"
+end
+
+local function _loseLife(self)
+	msg.post(_getObjectName(self), "disable")
+	self.lifeCount = self.lifeCount - 1			
+end
+	
+local function _gainLife(self) 
+	if self.lifeCount == 3 then
+		self.lifeCount = 3
+	elseif self.lifeCount < 3 then	
+		self.lifeCount = self.lifeCount + 1				
+	end			
+	msg.post(_getObjectName(self), "enable")		
+end
+	
+function on_message(self, message_id, message, sender)	
+	if message_id == hash("lose_life") then
+		_loseLife(self)		
+	elseif message_id == hash("gain_life") then
+		_gainLife(self)
+	end
+end

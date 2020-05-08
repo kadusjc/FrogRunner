@@ -1,7 +1,7 @@
 go.property("speed", 360)
 
 local grid = 460
-local platform_heights = { 100, 200, 350 }
+local platform_heights = { 100, 200, 350, 250, 400, 550 }
 local coins = 3 
 
 function init(self)
@@ -49,7 +49,7 @@ function on_message(self, message_id, message, sender)
 		-- Tell the hero to reset.
 		self.points = 0
 		printPoints(self)
-		
+		msg.post("lives/controller#lives", "lose_life")		
 		msg.post("hero/hero#hero", "reset")
 		-- Delete all platforms
 		for i,p in ipairs(self.spawns) do
