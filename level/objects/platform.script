@@ -6,7 +6,7 @@ end
 function update(self, dt)
 	local pos = go.get_position()
 	if pos.x < -500 then
-		go.delete() -- <1>
+		msg.post("controller#controller", "delete_spawn", { id = go.get_id() })
 	end
 	pos.x = pos.x - self.speed * dt
 	go.set_position(pos)
