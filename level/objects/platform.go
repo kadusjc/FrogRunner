@@ -265,3 +265,21 @@ embedded_components {
     w: 0.70710677
   }
 }
+embedded_components {
+  id: "coin_factory"
+  type: "factory"
+  data: "prototype: \"/level/objects/coin.go\"\n"
+  "load_dynamically: false\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
